@@ -56,6 +56,23 @@ app.delete('/user', (req, res) => {
   });
 });
 
+app.get('/requestQueryParameters', (req, res) => {
+  return res.status(201).send({
+    status: 'success',
+    message: "Data retrieved successfully",
+    data: req.query,
+  });
+});
+
+app.get('/user/:userID', (req, res) => {
+  return res.status(201).send({
+    status: 'success',
+    message: "Data retrieved successfully",
+    data: req.params.userID,
+  });
+});
+
+
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });
