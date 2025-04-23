@@ -2,8 +2,15 @@ const express = require('express');
 
 const app = express();
 
-app.use('/', (req, res) => {
-  return res.send('Hello from the server!');
+app.get('/users', (req, res) => {
+  return res.status(200).send({
+    status: 'success',
+    message: "User list retrieved successfully",
+    data: [
+      { id: 1, name: 'John Doe' },
+      { id: 2, name: 'Jane Doe' },
+    ],
+  });
 });
 
 app.listen(3000, () => {
